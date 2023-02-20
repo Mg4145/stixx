@@ -19,8 +19,13 @@ class Player:
     def update(self, hand: str, value: int) -> None:
         """Update the player's hand"""
         if hand == "L":
-            self.left = (self.left + value) % 5 if (self.left + value) % 5 != 0 else 0
+            self.left = (
+                    (self.left + value) % 5
+                    if (self.left + value) % 5 != 0
+                    else 0)
         else:
             self.right = (
-                (self.right + value) % 5 if (self.right + value) % 5 != 0 else 0
+                (self.right + value) % 5
+                if (self.right + value) % 5 != 0
+                else 0
             )
