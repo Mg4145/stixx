@@ -1,17 +1,18 @@
 """ Main module for the application. """
 
-import players
-import game
+# import argparse
+from players import Player
+from game import Game
 
 
 def main() -> None:
-    """ Main function """
+    """Main function"""
 
-    player_1 = players.Player("John")
-    player_2 = players.Player("Jane")
+    player_1 = Player("John")
+    player_2 = Player("Jane")
 
-    print(player_1)
-    print(player_2)
+    stixx_game = Game(player_1, player_2)
+    stixx_game.play()
 
 
 if __name__ == "__main__":
