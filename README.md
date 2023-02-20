@@ -5,6 +5,8 @@ their hands and add sticks to the opponent based on how many sticks they
 currently have. If either player gets exactly five sticks, they lose said hand.
 
 ![GitHub](https://img.shields.io/github/license/mg4145/stixx)
+![Issues](https://img.shields.io/github/issues/mg4145/stixx)
+
 
 # Overview
 Stixx is childhood game that many of us have played under different names or
