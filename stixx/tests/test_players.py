@@ -1,4 +1,8 @@
+import os
+import sys
 import unittest
+
+sys.path.insert(0, os.path.abspath('..'))
 from players import Player
 
 
@@ -16,7 +20,7 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(self.player.right, 1)
 
     def test_current_hand(self) -> None:
-        assert self.player.current_hand() ==  f"{self.player.left} {self.player.right}"
+        assert self.player.current_hand() == f"{self.player.left} {self.player.right}"
 
     def test_update_score(self) -> None:
         self.player.update("L", 2)

@@ -10,11 +10,7 @@ import random
 class Game:
     """Game class"""
 
-    def __init__(
-            self,
-            player1: players.Player,
-            player2: players.Player
-    ) -> None:
+    def __init__(self, player1: players.Player, player2: players.Player) -> None:
         """Initialize a new game"""
         self.player1 = player1
         self.player2 = player2
@@ -50,9 +46,7 @@ class Game:
 
         # Select who goes first
         current_player = self.coin_toss()
-        opponent = (self.player1
-                    if current_player == self.player2
-                    else self.player2)
+        opponent = self.player1 if current_player == self.player2 else self.player2
         print("-" * 80)
         print(f"{current_player.name} goes first!")
 
@@ -65,9 +59,7 @@ class Game:
             # Get the current player's move
 
             value = (
-                current_player.left
-                if input("Which of your hands? (L/R): ").upper() == "L"
-                else current_player.right
+                current_player.left if input("Which of your hands? (L/R): ").upper() == "L" else current_player.right
             )
 
             hand = input("Which opponent's hand? (L/R): ").upper()
