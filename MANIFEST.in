@@ -1,7 +1,9 @@
-graft example_project_python
+graft stixx
 
 include LICENSE
 include README.md
+include CONTRIBUTING.md
+include CODE_OF_CONDUCT.md
 
 include .bumpversion.cfg
 include pyproject.toml
