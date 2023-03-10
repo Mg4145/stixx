@@ -46,7 +46,6 @@ develop = [
     "mypy",
     "pytest>=4.3.0",
     "pytest-cov>=2.6.1",
-    "pyest-asyncio>=0.20.0",
     "twine",
     "wheel",
 ]
