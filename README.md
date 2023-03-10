@@ -7,9 +7,7 @@ currently have. If either player gets exactly five sticks, they lose said hand.
 
 <!-- ![GitHub](https://img.shields.io/github/license/mg4145/stixx)-->
 ![Issues](https://img.shields.io/github/issues/mg4145/stixx)
-[![Tests](https://github.com/mg4145/stixx/workflows/Tests/badge.svg)][tests]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
-
 [![Build Status](https://github.com/mg4145/stixx/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/mg4145/stixx/actions?query=workflow%3A%22Build+Status%22)
 [![codecov](https://codecov.io/gh/mg4145/stixx/branch/main/graph/badge.svg)](https://codecov.io/gh/mg4145/stixx)
 <!--[![PyPI](https://img.shields.io/pypi/v/stixx)](https://pypi.org/project/stixx/)-->
