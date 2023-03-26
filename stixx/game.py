@@ -1,6 +1,7 @@
 """ Game module """
 
 import players
+from players import Player
 import random
 
 # TODO: Create is_valid method for Player class to check if the move is valid
@@ -14,6 +15,8 @@ class Game:
         """Initialize a new game"""
         self.player1 = player1
         self.player2 = player2
+        self.current_player = self.coin_toss()
+        self.opponent = self.player1 if self.current_player == self.player2 else self.player2
         self.winner = None
 
     def coin_toss(self) -> players.Player:
@@ -24,16 +27,6 @@ class Game:
         """Check if the game is over"""
         return self.player1.is_both_empty() or self.player2.is_both_empty()
 
-    def game_over(self) -> None:
-        """Game over function"""
-        self.get_winner()
-        print("*" * 80)
-        print("Game over!\nFinal Hands: ")
-        print(f"{self.player1.name}: {self.player1.current_hand()}")
-        print(f"{self.player2.name}: {self.player2.current_hand()}\n")
-        print(f"{self.winner} wins!")
-        print("*" * 80)
-
     def get_winner(self) -> None:
         """Get the winner of the game"""
         if self.player1.is_both_empty():
@@ -41,37 +34,86 @@ class Game:
         elif self.player2.is_both_empty():
             self.winner = self.player1.name
 
+    def valid_input(self, hand: str) -> bool:
+        """Check if the hand is valid"""
+        if hand != "L" and hand != "R":
+            return False
+        return True
+
+    def switch_players(self) -> None:
+        """Switch players"""
+        self.current_player, self.opponent = self.opponent, self.current_player
+
+    def prompt_dialog(self, which_dialog: str) -> None:
+        """Print the dialog of the game"""
+        # LINE = "-" * 80
+        if which_dialog == "start":
+            print("-" * 80)
+            print(f"{self.current_player.name} goes first!")
+
+        elif which_dialog == "turn":
+            print("-" * 80)
+            print(f"{self.current_player.name} it's your turn!")
+            print(f"Your current hand is: {self.current_player.current_hand()}")
+            print(f"{self.opponent.name}'s hand is: {self.opponent.current_hand()}\n")
+
+        elif which_dialog == "over":
+            self.get_winner()
+            print("*" * 80)
+            print("Game over!")
+            print(f"{self.winner} wins!\n")
+            print("Final Hands: ")
+            print(f"{self.player1.name}: {self.player1.current_hand()}")
+            print(f"{self.player2.name}: {self.player2.current_hand()}")
+            print("*" * 80)
+
     def play(self) -> None:
         """Play the game"""
 
-        # Select who goes first
-        current_player = self.coin_toss()
-        opponent = self.player1 if current_player == self.player2 else self.player2
-        print("-" * 80)
-        print(f"{current_player.name} goes first!")
+        # Print the start dialog
+        self.prompt_dialog("start")
 
         # Play the game
         while True:
-            print(f"{current_player.name} it's your turn!")
-            print(f"Your current hand is: {current_player.current_hand()}")
-            print(f"{opponent.name}'s hand is: {opponent.current_hand()}\n")
+
+            # Print the dialog of the game
+            self.prompt_dialog("turn")
 
             # Get the current player's move
+            while True:
+                which_hand = input("Which of your hands? (L/R): ").strip().upper()
+                if not self.valid_input(which_hand):
+                    print("You can't play that hand!\nPlease try again.")
+                else:
+                    value = self.current_player.left if which_hand == "L" else self.current_player.right
+                    break
 
-            value = (
-                current_player.left if input("Which of your hands? (L/R): ").upper() == "L" else current_player.right
-            )
-
-            hand = input("Which opponent's hand? (L/R): ").upper()
-
-            # Update the game state
-            opponent.update(hand, value)
+            # Get the opponent's move
+            while True:
+                opponent_hand = input("Which opponent's hand? (L/R): ").strip().upper()
+                if not self.valid_input(which_hand):
+                    print("You can't play that hand!\nPlease try again.")
+                else:
+                    self.opponent.update(opponent_hand, value)
+                    break
 
             # Check if the game is over
             if self.is_over():
-                self.game_over()
+                self.prompt_dialog("over")
                 break
 
             # Switch players
-            current_player, opponent = opponent, current_player
-            print("-" * 80)
+            self.switch_players()
+
+
+def main() -> None:
+    """Main function"""
+
+    player_1 = Player(input("Player 1 name: "))
+    player_2 = Player(input("Player 1 name: "))
+    stixx_game = Game(player_1, player_2)
+    stixx_game.play()
+
+
+if __name__ == "__main__":
+    main()
