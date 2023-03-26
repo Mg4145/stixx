@@ -46,26 +46,28 @@ class Game:
 
     def prompt_dialog(self, which_dialog: str) -> None:
         """Print the dialog of the game"""
-        # LINE = "-" * 80
+        LINE = "-" * 80
         if which_dialog == "start":
-            print("-" * 80)
-            print(f"{self.current_player.name} goes first!")
+            print(LINE + f"\n{self.current_player.name} goes first!")
 
         elif which_dialog == "turn":
-            print("-" * 80)
-            print(f"{self.current_player.name} it's your turn!")
-            print(f"Your current hand is: {self.current_player.current_hand()}")
-            print(f"{self.opponent.name}'s hand is: {self.opponent.current_hand()}\n")
+            line_1 = f"\n{self.current_player.name} it's your turn!"
+            line_2 = f"\nYour current hand is: {self.current_player.current_hand()}"
+            line_3 = f"\n{self.opponent.name}'s hand is: {self.opponent.current_hand()}\n"
+            dialog = LINE + line_1 + line_2 + line_3
+            print(dialog)
 
         elif which_dialog == "over":
             self.get_winner()
-            print("*" * 80)
-            print("Game over!")
-            print(f"{self.winner} wins!\n")
-            print("Final Hands: ")
-            print(f"{self.player1.name}: {self.player1.current_hand()}")
-            print(f"{self.player2.name}: {self.player2.current_hand()}")
-            print("*" * 80)
+            LINE.replace("-", "*")
+
+            line_1 = "\nGame over!" + f"\n{self.winner} wins!\n"
+            line_2 = "\nFinal Hands: "
+            line_3 = f"\n{self.player1.name}: {self.player1.current_hand()}"
+            line_4 = f"\n{self.player2.name}: {self.player2.current_hand()}"
+
+            dialog = LINE + line_1 + line_2 + line_3 + line_4 + LINE
+            print(dialog)
 
     def play(self) -> None:
         """Play the game"""
