@@ -108,14 +108,8 @@ class Game:
             self.switch_players()
 
 
-def main() -> None:
-    """Main function"""
-
-    player_1 = Player(input("Player 1 name: "))
-    player_2 = Player(input("Player 1 name: "))
+if __name__ == "__main__":
+    player_1 = Player(input("Player 1 name: ").strip())
+    player_2 = Player(input("Player 2 name: ").strip())
     stixx_game = Game(player_1, player_2)
     stixx_game.play()
-
-
-if __name__ == "__main__":
-    main()
