@@ -4,6 +4,7 @@ import players
 from players import Player
 import random
 
+
 # TODO: Create is_valid method for Player class to check if the move is valid
 # TODO: Add an extra move for the players
 
@@ -59,14 +60,13 @@ class Game:
 
         elif which_dialog == "over":
             self.get_winner()
-            LINE.replace("-", "*")
 
             line_1 = "\nGame over!" + f"\n{self.winner} wins!\n"
             line_2 = "\nFinal Hands: "
             line_3 = f"\n{self.player1.name}: {self.player1.current_hand()}"
-            line_4 = f"\n{self.player2.name}: {self.player2.current_hand()}"
+            line_4 = f"\n{self.player2.name}: {self.player2.current_hand()}\n"
 
-            dialog = LINE + line_1 + line_2 + line_3 + line_4 + LINE
+            dialog = LINE.replace("-", "*") + line_1 + line_2 + line_3 + line_4 + LINE.replace("-", "*")
             print(dialog)
 
     def play(self) -> None:

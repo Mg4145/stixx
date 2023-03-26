@@ -109,14 +109,15 @@ class TestGame(unittest.TestCase):
     def test_prompt_dialog_over(self):
         self.tearUp()
         self.game.get_winner()
-        LINE.replace("-", "*")
         print(self.game.winner)
         over_line_1 = "\nGame over!" + f"\n{self.game.winner} wins!\n"
         over_line_2 = "\nFinal Hands: "
         over_line_3 = f"\n{self.game.player1.name}: {self.game.player1.current_hand()}"
-        over_line_4 = f"\n{self.game.player2.name}: {self.game.player2.current_hand()}"
+        over_line_4 = f"\n{self.game.player2.name}: {self.game.player2.current_hand()}\n"
 
-        test_dialog = LINE + over_line_1 + over_line_2 + over_line_3 + over_line_4 + LINE
+        test_dialog = (
+            LINE.replace("-", "*") + over_line_1 + over_line_2 + over_line_3 + over_line_4 + LINE.replace("-", "*")
+        )
 
         output = io.StringIO()
         sys.stdout = output
