@@ -19,9 +19,15 @@ class Player:
     def update(self, hand: str, value: int) -> None:
         """Update the player's hand"""
         if hand == "L":
-            self.left = (self.left + value) % 5 if (self.left + value) % 5 != 0 else 0
+            if (self.left + value) % 5 != 0:
+                self.left = (self.left + value) % 5
+            else:
+                self.left = 0
         else:
-            self.right = (self.right + value) % 5 if (self.right + value) % 5 != 0 else 0
+            if (self.right + value) % 5 != 0:
+                self.right = (self.right + value) % 5
+            else:
+                self.right = 0
 
     def is_empty(self, hand: str) -> bool:
         """Check if the hand is empty"""

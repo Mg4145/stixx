@@ -4,4 +4,4 @@ import players
 from .game import Game
 from .players import Player
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"

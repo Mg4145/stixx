@@ -77,7 +77,6 @@ class Game:
 
         # Play the game
         while True:
-
             # Print the dialog of the game
             self.prompt_dialog("turn")
 
@@ -89,7 +88,10 @@ class Game:
                 elif self.current_player.is_empty(which_hand):
                     print("Hand is empty!\nPlease try again.")
                 else:
-                    value = self.current_player.left if which_hand == "L" else self.current_player.right
+                    if which_hand == "L":
+                        value = self.current_player.left
+                    else:
+                        value = self.current_player.right
                     break
 
             # Get the opponent's move
