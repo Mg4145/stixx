@@ -77,7 +77,6 @@ class Game:
 
         # Play the game
         while True:
-
             # Print the dialog of the game
             self.prompt_dialog("turn")
 
