@@ -48,6 +48,7 @@ that works. There are also exciting plans in for future of this game.
 ## Requirements
 
 - TODO
+-->
 
 ## Installation
 
@@ -60,7 +61,6 @@ $ pip install stixx
 ## Usage
 
 Please see the [Command-line Reference] for details.
--->
 
 ## Contributing
 
