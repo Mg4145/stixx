@@ -11,7 +11,7 @@ name = "Stixx"
 authors = [{name = "Mauricio Guerrero", email = "mg4145@columbia.edu"}]
 description="A simple two-player video game."
 readme = "README.md"
-version = "0.1.0"
+version = "0.1.1"
 requires-python = ">=3.7"
 
 dependencies = []
