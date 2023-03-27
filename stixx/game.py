@@ -83,9 +83,11 @@ class Game:
 
             # Get the current player's move
             while True:
-                which_hand = input("Which of your hands? (L/R): ").strip().upper()
+                which_hand = input("Which hand? (L/R): ").strip().upper()
                 if not self.valid_input(which_hand):
-                    print("You can't play that hand!\nPlease try again.")
+                    print("Invalid input!\nPlease type \"R\" or \"L\"")
+                elif self.current_player.is_empty(which_hand):
+                    print("Hand is empty!\nPlease try again.")
                 else:
                     value = self.current_player.left if which_hand == "L" else self.current_player.right
                     break
@@ -93,8 +95,10 @@ class Game:
             # Get the opponent's move
             while True:
                 opponent_hand = input("Which opponent's hand? (L/R): ").strip().upper()
-                if not self.valid_input(which_hand):
-                    print("You can't play that hand!\nPlease try again.")
+                if not self.valid_input(opponent_hand):
+                    print("Invalid input!\nPlease type \"R\" or \"L\"")
+                elif self.opponent.is_empty(opponent_hand):
+                    print("Opponent's hand is empty!\nPlease try again.")
                 else:
                     self.opponent.update(opponent_hand, value)
                     break
