@@ -22,3 +22,10 @@ class Player:
             self.left = (self.left + value) % 5 if (self.left + value) % 5 != 0 else 0
         else:
             self.right = (self.right + value) % 5 if (self.right + value) % 5 != 0 else 0
+
+    def is_empty(self, hand: str) -> bool:
+        """Check if the hand is empty"""
+        if hand == "L":
+            return self.left == 0
+        else:
+            return self.right == 0

@@ -48,6 +48,7 @@ that works. There are also exciting plans in for future of this game.
 ## Requirements
 
 - TODO
+-->
 
 ## Installation
 
@@ -59,8 +60,10 @@ $ pip install stixx
 
 ## Usage
 
-Please see the [Command-line Reference] for details.
--->
+<!--Please see the [Command-line Reference] for details. -->
+```python
+python game.py
+```
 
 ## Contributing
 

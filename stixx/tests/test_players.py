@@ -37,3 +37,16 @@ class TestPlayer(unittest.TestCase):
         self.player.update("L", 1)
         self.player.right = 0
         self.assertTrue(self.player.is_both_empty())
+
+    def test_is_empty(self) -> None:
+        self.player.update("L", 3)
+        self.assertFalse(self.player.is_empty("L"))
+
+        self.player.update("L", 1)
+        self.assertTrue(self.player.is_empty("L"))
+
+        self.player.update("R", 3)
+        self.assertFalse(self.player.is_empty("R"))
+
+        self.player.update("R", 1)
+        self.assertTrue(self.player.is_empty("R"))
