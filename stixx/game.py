@@ -11,6 +11,7 @@ import random
 
 class Game:
     """Game class"""
+    # TODO: Add docstring
 
     def __init__(self, player1: players.Player, player2: players.Player) -> None:
         """Initialize a new game"""
