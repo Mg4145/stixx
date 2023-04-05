@@ -14,8 +14,8 @@ install:  ## install library
 # LINTS #
 #########
 lint:  ## run static analysis with flake8
-	python -m black --check stixx setup.py #
-	python -m flake8 stixx setup.py #
+	python -m black --check stixx setup.py 
+	python -m flake8 stixx setup.py 
 
 # Alias
 lints: lint
