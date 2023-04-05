@@ -25,6 +25,10 @@ $ pip show stixx | grep "Location"
 $ python game.py
 ```
 
+# Demo
+![](../demo.gif)
+
+
 ```eval_rst
 .. note::
   Installation instructions are subject to change very soon.
