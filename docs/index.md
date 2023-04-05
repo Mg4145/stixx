@@ -6,13 +6,28 @@
 
 # Stixx Documentation
 
-# Stixx
+# Installation
+```bash
+pip install stixx
+```
 
- - Bullets
+# Running
+  - Locate the directory
+```bash
+$ pip show stixx | grep "Location"
+```
+  - Once the location has been found change directories to said location
+  ```bash
+  $ cd <location>
+  ```
+  -  Run the game
+```bash
+$ python game.py
+```
 
 ```eval_rst
 .. note::
-  We can still mix rst, which we'll use for autodocumentation
+  Installation instructions are subject to change very soon.
 ```
 
 <!--
