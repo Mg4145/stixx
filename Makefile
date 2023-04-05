@@ -97,7 +97,8 @@ print-%:
 
 .PHONY: develop build install lint lints format fix check checks annotate test coverage show-coverage tests show-version patch minor major dist-build dist-check dist publish deep-clean clean help
 
-TMPREPO=/tmp/docs/bt
+# TMPREPO=./tmp/docs/stixx
+TMPREPO=tmp
 
 docs: 
 	$(MAKE) -C docs/ clean
