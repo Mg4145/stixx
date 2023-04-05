@@ -11,9 +11,7 @@ currently have. If either player gets exactly five sticks, they lose said hand.
 [![Build Status](https://github.com/mg4145/stixx/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/mg4145/stixx/actions?query=workflow%3A%22Build+Status%22)
 [![codecov](https://codecov.io/gh/mg4145/stixx/branch/main/graph/badge.svg)](https://codecov.io/gh/mg4145/stixx)
 [![PyPI](https://img.shields.io/pypi/v/stixx)](https://pypi.org/project/stixx/)
-
-
-<!--[![Codecov](https://codecov.io/gh/mg4145/stixx/branch/main/graph/badge.svg)][codecov]-->
+[![Docs](https://img.shields.io/readthedocs/stixx)](https://stixx.readthedocs.io/)
 
 # Overview
 Stixx is childhood game that many of us have played under different names or
@@ -21,10 +19,7 @@ rules. The purpose of this project is to give back the nostalgia that this
 childhood game gave us. The current plan is to have a bare-bones UI of the game
 that works. There are also exciting plans in for future of this game.
 <!--
-[![PyPI](https://img.shields.io/pypi/v/stixx.svg)][pypi_]
-[![Status](https://img.shields.io/pypi/status/stixx.svg)][status]
 [![Python Version](https://img.shields.io/pypi/pyversions/stixx)][python version]
-[![License](https://img.shields.io/pypi/l/stixx)][license]
 
 [![Read the documentation at https://stixx.readthedocs.io/](https://img.shields.io/readthedocs/stixx/latest.svg?label=Read%20the%20Docs)][read the docs]
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
