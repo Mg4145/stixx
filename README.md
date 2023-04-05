@@ -53,11 +53,18 @@ You can install _stixx_ via [pip] from [PyPI]:
 $ pip install stixx
 ```
 
-## Usage
-
-<!--Please see the [Command-line Reference] for details. -->
-```python
-python game.py
+# Running
+  - Locate the directory
+```bash
+$ pip show stixx | grep "Location"
+```
+  - Once the location has been found change directories to said location
+  ```bash
+  $ cd <location>
+  ```
+  -  Run the game
+```bash
+$ python game.py
 ```
 
 ## Contributing
