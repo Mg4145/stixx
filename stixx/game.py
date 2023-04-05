@@ -1,4 +1,16 @@
-""" Game module """
+"""Stixx game module.
+
+This module contains the Game class and the main function.
+To play the game, run this module.
+
+
+Typical usage example:
+    player_1 = Player(input("Player 1 name: ").strip())
+    player_2 = Player(input("Player 2 name: ").strip())
+    stixx_game = Game(player_1, player_2)
+    stixx_game.play()
+
+"""
 
 import players
 from players import Player
@@ -10,10 +22,26 @@ import random
 
 
 class Game:
-    """Game class"""
+    """Game class for the Stixx game.
+
+    This class contains the game logic and the game play.
+
+    Attributes:
+        player1: The first player.
+        player2: The second player.
+        current_player: The current player.
+        opponent: The opponent of the current player.
+        winner: The winner of the game.
+    """
 
     def __init__(self, player1: players.Player, player2: players.Player) -> None:
-        """Initialize a new game"""
+        """Initialize a new game.
+
+        Args:
+            player1: The first player.
+            player2: The second player.
+        """
+
         self.player1 = player1
         self.player2 = player2
         self.current_player = self.coin_toss()
@@ -21,32 +49,37 @@ class Game:
         self.winner = None
 
     def coin_toss(self) -> players.Player:
-        """Randomly select who goes first"""
+        """Randomly select who goes first."""
         return random.choice([self.player1, self.player2])
 
     def is_over(self) -> bool:
-        """Check if the game is over"""
+        """Check if the game is over."""
         return self.player1.is_both_empty() or self.player2.is_both_empty()
 
     def get_winner(self) -> None:
-        """Get the winner of the game"""
+        """Get the winner of the game."""
         if self.player1.is_both_empty():
             self.winner = self.player2.name
         elif self.player2.is_both_empty():
             self.winner = self.player1.name
 
     def valid_input(self, hand: str) -> bool:
-        """Check if the hand is valid"""
+        """Check if the hand is valid."""
         if hand != "L" and hand != "R":
             return False
         return True
 
     def switch_players(self) -> None:
-        """Switch players"""
+        """Switch players."""
         self.current_player, self.opponent = self.opponent, self.current_player
 
     def prompt_dialog(self, which_dialog: str) -> None:
-        """Print the dialog of the game"""
+        """Print the dialog of the game.
+
+        Args:
+            which_dialog: The dialog to print.
+        """
+
         LINE = "-" * 80
         if which_dialog == "start":
             print(LINE + f"\n{self.current_player.name} goes first!")
@@ -81,6 +114,7 @@ class Game:
             self.prompt_dialog("turn")
 
             # Get the current player's move
+            # TODO: Make this a method of the Player class
             while True:
                 which_hand = input("Which hand? (L/R): ").strip().upper()
                 if not self.valid_input(which_hand):
@@ -95,6 +129,7 @@ class Game:
                     break
 
             # Get the opponent's move
+            # TODO: Make this a method of the Player class
             while True:
                 opponent_hand = input("Which opponent's hand? (L/R): ").strip().upper()
                 if not self.valid_input(opponent_hand):
