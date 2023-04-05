@@ -67,6 +67,9 @@ $ pip show stixx | grep "Location"
 $ python game.py
 ```
 
+## Demo
+![](https://github.com/mg4145/stixx/blob/master/demo.gif)
+
 ## Contributing
 
 Contributions are very welcome.
