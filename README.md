@@ -18,21 +18,7 @@ Stixx is childhood game that many of us have played under different names or
 rules. The purpose of this project is to give back the nostalgia that this
 childhood game gave us. The current plan is to have a bare-bones UI of the game
 that works. There are also exciting plans in for future of this game.
-<!--
-[![Python Version](https://img.shields.io/pypi/pyversions/stixx)][python version]
 
-[![Read the documentation at https://stixx.readthedocs.io/](https://img.shields.io/readthedocs/stixx/latest.svg?label=Read%20the%20Docs)][read the docs]
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
-
-[pypi_]: https://pypi.org/project/stixx/
-[status]: https://pypi.org/project/stixx/
-[python version]: https://pypi.org/project/stixx
-[read the docs]: https://stixx.readthedocs.io/
-[codecov]: https://app.codecov.io/gh/mg4145/stixx
-[pre-commit]: https://github.com/pre-commit/pre-commit
--->
-
-[tests]: https://github.com/mg4145/stixx/actions?workflow=Tests
 [black]: https://github.com/psf/black
 
 <!--
