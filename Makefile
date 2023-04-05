@@ -98,7 +98,7 @@ print-%:
 .PHONY: develop build install lint lints format fix check checks annotate test coverage show-coverage tests show-version patch minor major dist-build dist-check dist publish deep-clean clean help
 
 # TMPREPO=./tmp/docs/stixx
-TMPREPO=tmp
+TMPREPO=tmp/
 
 docs: 
 	$(MAKE) -C docs/ clean
@@ -106,9 +106,9 @@ docs:
 
 pages: 
 	rm -rf $(TMPREPO)
-	git clone -b gh-pages git@github.com:mg4145/stixx.git $(TMPREPO)
+	git clone -b gh-pages https://github.com/mg4145/stixx.git $(TMPREPO)
 	rm -rf $(TMPREPO)/*
-	cp -r docs/build/html/* $(TMPREPO)
+	cp -r docs/_build/html/* $(TMPREPO)
 	cd $(TMPREPO);\
 	git add -A ;\
 	git commit -a -m 'auto-updating docs' ;\
