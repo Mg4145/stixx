@@ -68,7 +68,7 @@ $ python game.py
 ```
 
 ## Demo
-![](https://github.com/mg4145/stixx/blob/master/demo.gif)
+![](demo.gif)
 
 ## Contributing
 
