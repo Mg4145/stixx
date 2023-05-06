@@ -30,8 +30,10 @@ $ python game.py
 
 
 ```eval_rst
-.. note::
-  Installation instructions are subject to change very soon.
+.. Path Notes::
+    - You can now see your hand and opponent's hand if you accidentally
+      misclick on either "l" or "r".
+    - Unittests have been updated as well.
 ```
 
 <!--

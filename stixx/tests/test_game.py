@@ -3,6 +3,7 @@ from game import Game
 import os
 import sys
 import unittest
+from unittest.mock import patch
 import io
 
 
@@ -154,6 +155,30 @@ class TestGame(unittest.TestCase):
         output = io.StringIO()
         sys.stdout = output
         self.game.prompt_dialog("empty")
+        dialog = output.getvalue().strip() + "\n"
+        sys.stdout = sys.__stdout__
+        self.assertEqual(dialog, test_dialog)
+
+    @patch("builtins.input", return_value="L")
+    def test_select_hand_opponent(self, mock_input):
+        self.tearUp()
+
+        test_dialog = "\n"
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.select_hand_opponent()
+        dialog = output.getvalue().strip() + "\n"
+        sys.stdout = sys.__stdout__
+        self.assertEqual(dialog, test_dialog)
+
+    @patch("builtins.input", return_value="L")
+    def test_select_hand(self, mock_input):
+        self.tearUp()
+
+        test_dialog = "\n"
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.select_hand()
         dialog = output.getvalue().strip() + "\n"
         sys.stdout = sys.__stdout__
         self.assertEqual(dialog, test_dialog)
