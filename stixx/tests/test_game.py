@@ -159,6 +159,7 @@ class TestGame(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(dialog, test_dialog)
 
+###############################################################################
     @patch("builtins.input", return_value="L")
     def test_select_hand_opponent(self, mock_input):
         self.tearUp()
@@ -181,4 +182,86 @@ class TestGame(unittest.TestCase):
         self.game.select_hand()
         dialog = output.getvalue().strip() + "\n"
         sys.stdout = sys.__stdout__
+        self.assertEqual(dialog, test_dialog)
+###############################################################################
+# SELECT HAND OPPONENT TESTS
+
+    @patch("builtins.input", return_value="L")
+    def test_select_hand_opponent_left(self, mock_input):
+        self.tearUp()
+        test_value = self.game.current_player.left
+
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.select_hand_opponent()
+        sys.stdout = sys.__stdout__
+
+        assert self.game.current_player.left == test_value
+
+    @patch("builtins.input", return_value="R")
+    def test_select_hand_opponent_right(self, mock_input):
+        self.tearUp()
+
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.select_hand_opponent()
+        sys.stdout = sys.__stdout__
+
+        test_value = self.game.current_player.right
+        assert self.game.current_player.right == test_value
+
+###############################################################################
+# SELECT HAND
+    @patch("builtins.input", return_value="L")
+    def test_select_hand_left(self, mock_input):
+        self.tearUp()
+        test_value = self.game.current_player.left
+
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.select_hand()
+        sys.stdout = sys.__stdout__
+
+        assert self.game.current_player.left == test_value
+
+    @patch("builtins.input", return_value= "R")
+    def test_select_hand_right(self, mock_input):
+        self.tearUp()
+
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.select_hand()
+        sys.stdout = sys.__stdout__
+
+        if self.game.which_hand != "L":
+            test_value = self.game.current_player.right
+
+        assert self.game.value == test_value
+
+
+###############################################################################
+    @patch("builtins.input", return_value="x", side_effect=["L", "R"])
+    def test_select_hand_invalid(self, mock_input):
+        self.tearUp()
+        test_dialog = "\n"
+
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.select_hand()
+        dialog = output.getvalue().strip() + "\n"
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(dialog, test_dialog)
+
+    @patch("builtins.input", return_value="x", side_effect=["L", "R"])
+    def test_select_hand_opponent_invalid(self, mock_input):
+        self.tearUp()
+        test_dialog = "\n"
+
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.select_hand_opponent()
+        dialog = output.getvalue().strip() + "\n"
+        sys.stdout = sys.__stdout__
+
         self.assertEqual(dialog, test_dialog)
