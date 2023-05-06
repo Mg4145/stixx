@@ -48,6 +48,10 @@ class Game:
         self.opponent = self.player1 if self.current_player == self.player2 else self.player2
         self.winner = None
 
+        self.value = 0
+        self.which_hand = None
+        self.opponent_hand = None
+
     def coin_toss(self) -> players.Player:
         """Randomly select who goes first."""
         return random.choice([self.player1, self.player2])
@@ -102,6 +106,49 @@ class Game:
             dialog = LINE.replace("-", "*") + line_1 + line_2 + line_3 + line_4 + LINE.replace("-", "*")
             print(dialog)
 
+        elif which_dialog == "invalid":
+            line_1 = "\nInvalid input!\nPlease type \"R\" or \"L\""
+            line_2 = f"\nYour current hand is: {self.current_player.current_hand()}"
+            line_3 = f"\n{self.opponent.name}'s hand is: {self.opponent.current_hand()}\n"
+
+            dialog = LINE + line_1 + line_2 + line_3
+            print(dialog)
+
+        elif which_dialog == "empty":
+            line_1 = "\nHand is empty!\nPlease try again."
+            line_2 = f"\nYour current hand is: {self.current_player.current_hand()}"
+            line_3 = f"\n{self.opponent.name}'s hand is: {self.opponent.current_hand()}\n"
+
+            dialog = LINE + line_1 + line_2 + line_3
+            print(dialog)
+
+    def select_hand(self) -> None:
+        """Get the move of the current player."""
+        while True:
+            self.which_hand = input("Which hand? (L/R): ").strip().upper()
+            if not self.valid_input(self.which_hand):
+                self.prompt_dialog("invalid")
+            elif self.current_player.is_empty(self.which_hand):
+                self.prompt_dialog("empty")
+            else:
+                if self.which_hand == "L":
+                    self.value = self.current_player.left
+                else:
+                    self.value = self.current_player.right
+                break
+
+    def select_hand_opponent(self) -> None:
+        """Select the opponent's hand."""
+        while True:
+            self.opponent_hand = input("Which opponent's hand? (L/R): ").strip().upper()
+            if not self.valid_input(self.opponent_hand):
+                self.prompt_dialog("invalid")
+            elif self.opponent.is_empty(self.opponent_hand):
+                self.prompt_dialog("empty")
+            else:
+                self.opponent.update(self.opponent_hand, self.value)
+                break
+
     def play(self) -> None:
         """Play the game"""
 
@@ -113,32 +160,11 @@ class Game:
             # Print the dialog of the game
             self.prompt_dialog("turn")
 
-            # Get the current player's move
-            # TODO: Make this a method of the Player class
-            while True:
-                which_hand = input("Which hand? (L/R): ").strip().upper()
-                if not self.valid_input(which_hand):
-                    print("Invalid input!\nPlease type \"R\" or \"L\"")
-                elif self.current_player.is_empty(which_hand):
-                    print("Hand is empty!\nPlease try again.")
-                else:
-                    if which_hand == "L":
-                        value = self.current_player.left
-                    else:
-                        value = self.current_player.right
-                    break
+            # Current player select hand
+            self.select_hand()
 
-            # Get the opponent's move
-            # TODO: Make this a method of the Player class
-            while True:
-                opponent_hand = input("Which opponent's hand? (L/R): ").strip().upper()
-                if not self.valid_input(opponent_hand):
-                    print("Invalid input!\nPlease type \"R\" or \"L\"")
-                elif self.opponent.is_empty(opponent_hand):
-                    print("Opponent's hand is empty!\nPlease try again.")
-                else:
-                    self.opponent.update(opponent_hand, value)
-                    break
+            # Current player select opponent's hand
+            self.select_hand_opponent()
 
             # Check if the game is over
             if self.is_over():
