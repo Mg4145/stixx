@@ -2,7 +2,7 @@
 # BUILD #
 #########
 
-TMPREPO=/tmp/docs/stixx
+TMPREPO=/tmp/docs/stixx # used for docs
 
 develop:  ## install dependencies and build library
 	python -m pip install -e .[develop]
@@ -17,8 +17,8 @@ install:  ## install library
 # LINTS #
 #########
 lint:  ## run static analysis with flake8
-	python -m black --check stixx setup.py 
-	python -m flake8 stixx setup.py 
+	python -m black --check stixx setup.py
+	python -m flake8 stixx setup.py
 
 # Alias
 lints: lint
@@ -112,4 +112,3 @@ print-%:
 	@echo '$*=$($*)'
 
 .PHONY: develop build install lint lints format fix check checks annotate test coverage show-coverage tests show-version patch minor major dist-build dist-check dist publish deep-clean clean help docs pages
-
