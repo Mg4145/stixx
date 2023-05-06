@@ -2,7 +2,8 @@
 # BUILD #
 #########
 
-TMPREPO=/tmp/docs/stixx # used for docs
+# TMPREPO=/tmp/docs/stixx # used for docs
+TMPREPO=tmp
 
 develop:  ## install dependencies and build library
 	python -m pip install -e .[develop]
