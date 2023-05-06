@@ -142,7 +142,6 @@ class TestGame(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(dialog, test_dialog)
 
-
     def test_prompt_dialog_empty(self):
         self.tearUp()
 
