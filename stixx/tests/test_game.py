@@ -125,3 +125,36 @@ class TestGame(unittest.TestCase):
         dialog = output.getvalue().strip()
         sys.stdout = sys.__stdout__
         self.assertEqual(dialog, test_dialog)
+
+    def test_prompt_dialog_invalid(self):
+        self.tearUp()
+
+        line_1 = "\nInvalid input!\nPlease type \"R\" or \"L\""
+        line_2 = f"\nYour current hand is: {self.game.current_player.current_hand()}"
+        line_3 = f"\n{self.game.opponent.name}'s hand is: {self.game.opponent.current_hand()}\n"
+
+        test_dialog = LINE + line_1 + line_2 + line_3
+
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.prompt_dialog("invalid")
+        dialog = output.getvalue().strip() + "\n"
+        sys.stdout = sys.__stdout__
+        self.assertEqual(dialog, test_dialog)
+
+
+    def test_prompt_dialog_empty(self):
+        self.tearUp()
+
+        line_1 = "\nHand is empty!\nPlease try again."
+        line_2 = f"\nYour current hand is: {self.game.current_player.current_hand()}"
+        line_3 = f"\n{self.game.opponent.name}'s hand is: {self.game.opponent.current_hand()}\n"
+
+        test_dialog = LINE + line_1 + line_2 + line_3
+
+        output = io.StringIO()
+        sys.stdout = output
+        self.game.prompt_dialog("empty")
+        dialog = output.getvalue().strip() + "\n"
+        sys.stdout = sys.__stdout__
+        self.assertEqual(dialog, test_dialog)
