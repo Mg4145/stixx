@@ -6,6 +6,7 @@ their hands and add sticks to the opponent based on how many sticks they
 currently have. If either player gets exactly five sticks, they lose said hand.
 
 <!-- ![GitHub](https://img.shields.io/github/license/mg4145/stixx)-->
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 ![Issues](https://img.shields.io/github/issues/mg4145/stixx)
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 [![Build Status](https://github.com/mg4145/stixx/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/mg4145/stixx/actions?query=workflow%3A%22Build+Status%22)
