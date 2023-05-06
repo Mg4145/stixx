@@ -31,7 +31,11 @@ $ python game.py
 
 ```eval_rst
 .. note::
-  Installation instructions are subject to change very soon.
+    -   You can now see your hand and opponent's hand if you did not correctly
+        select your hand when prompted.
+
+    -   Unittests have been udpated and code refactoring has been done for
+        prompting.
 ```
 
 <!--
