@@ -27,3 +27,4 @@ recursive-include docs *.py
 recursive-include docs Makefile
 
 include *.gif
+include *.yaml
