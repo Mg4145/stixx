@@ -159,7 +159,7 @@ class TestGame(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(dialog, test_dialog)
 
-###############################################################################
+    ###############################################################################
     @patch("builtins.input", return_value="L")
     def test_select_hand_opponent(self, mock_input):
         self.tearUp()
@@ -183,8 +183,9 @@ class TestGame(unittest.TestCase):
         dialog = output.getvalue().strip() + "\n"
         sys.stdout = sys.__stdout__
         self.assertEqual(dialog, test_dialog)
-###############################################################################
-# SELECT HAND OPPONENT TESTS
+
+    ###############################################################################
+    # SELECT HAND OPPONENT TESTS
 
     @patch("builtins.input", return_value="L")
     def test_select_hand_opponent_left(self, mock_input):
@@ -210,8 +211,8 @@ class TestGame(unittest.TestCase):
         test_value = self.game.current_player.right
         assert self.game.current_player.right == test_value
 
-###############################################################################
-# SELECT HAND
+    ###############################################################################
+    # SELECT HAND
     @patch("builtins.input", return_value="L")
     def test_select_hand_left(self, mock_input):
         self.tearUp()
@@ -224,7 +225,7 @@ class TestGame(unittest.TestCase):
 
         assert self.game.current_player.left == test_value
 
-    @patch("builtins.input", return_value= "R")
+    @patch("builtins.input", return_value="R")
     def test_select_hand_right(self, mock_input):
         self.tearUp()
 
@@ -238,8 +239,7 @@ class TestGame(unittest.TestCase):
 
         assert self.game.value == test_value
 
-
-###############################################################################
+    ###############################################################################
     @patch("builtins.input", return_value="x", side_effect=["L", "R"])
     def test_select_hand_invalid(self, mock_input):
         self.tearUp()
